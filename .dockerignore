@@ -1,0 +1,36 @@
+# Gradle build directories
+.gradle/
+build/
+
+# IDE specific files
+.idea/
+.vscode/
+*.iml
+
+# Git directory
+.git/
+.gitignore
+
+# Log files
+*.log
+
+# Temporary files
+tmp/
+temp/
+
+# Test reports
+reports/
+
+# Distribution directories
+dist/
+
+# Environment files
+.env*
+
+# Docker build context optimization
+Dockerfile
+.dockerignore
+
+# Documentation
+README.md
+LICENSE

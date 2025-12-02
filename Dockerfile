@@ -1,12 +1,12 @@
 # Build stage
-FROM openjdk:26-ea-oraclelinux8 AS builder
+FROM openjdk:11-jdk-slim AS builder
 WORKDIR /app
 COPY . .
-RUN ./mvnw clean package -DskipTests
+RUN ./gradlew clean build -x test
 
 # Runtime stage
-FROM openjdk:26-ea-oraclelinux8
+FROM openjdk:11-jre-slim
 WORKDIR /app
-COPY --from=builder /app/target/*.jar app.jar
+COPY --from=builder /app/build/libs/*.jar app.jar
 EXPOSE 8085
 ENTRYPOINT ["java", "-jar", "app.jar"]
